@@ -51,7 +51,7 @@ angular.module('fbPostImageValidator')
 
 					updateStates();
 
-					ngModel.$setValidity('tooManyWord', !isLimitReached());
+					ngModel.$setValidity('tooManyText', !isLimitReached());
 				}
 
 				function updateStates() {
