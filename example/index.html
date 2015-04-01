@@ -9,26 +9,59 @@
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Cache-Control" content="no-cache">
 		<meta http-equiv="Lang" content="fr">
-		<meta name="description" content=""/>
 		<!-- if partials used -->
 		<!-- <meta name="fragment" content="!"> -->
 	<!-- meta -->
 
 	<!-- design -->
 		<!-- styles -->
+		<link rel="stylesheet" href="../lib/styles/fbImgValidator.css">
+		<style>
+			[nv-file-drop] {
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+			}
+		</style>
 		<!-- styles -->
 		<!-- fonts -->
 		<!-- fonts -->
 	<!-- design -->
 	</head>
 	<body ng-app="app">
-
-		<!-- content -->>
+		
+		<!-- content -->
+		<form name="myForm" ng-controller="app.controllers.sample as Sample">
+			<input type="text" ng-model="Sample.img">
+			<fb-img-validator ng-model="Sample.img" name="file" col=5 row=5 img-width=300></fb-img-validator>
+			<hr>
+			<div nv-file-drop uploader="Sample.uploader">
+				<div nv-file-over uploader="Sample.uploader">
+					DROP ZONE
+				</div>
+			</div>
+			<hr>
+			<input type="file" nv-file-select uploader="Sample.uploader" multiple  />
+			<hr>
+			<article ng-repeat="item in Sample.uploader.queue">
+				<pre>{{item.file|json}}</pre>
+				<fb-img-validator ng-model="item._file" name="file" col=5 row=5 img-width=300></fb-img-validator>
+			</article>
+			<pre>{{myForm|json}}</pre>
+		</section>
+		<!-- content -->
 
 		<!-- scripts -->
 			<!-- libraries -->
 			<script src="../bower_components/angular/angular.js"></script>
-            
+			<script src="../bower_components/angular-file-upload/angular-file-upload.js"></script>
+			
+			<script src="../lib/javascripts/core.js"></script>
+			<script src="../lib/javascripts/templates/core.js"></script>
+			<script src="../lib/javascripts/constants/imgCaseStates.js"></script>
+			<script src="../lib/javascripts/services/fileReader.js"></script>
+			<script src="../lib/javascripts/services/grid.js"></script>
+			<script src="../lib/javascripts/directives/fbImgValidator.js"></script>
 			<!-- libraries -->
 			<!-- features -->
 			<script src="./modules/core.js"></script>

@@ -1,1 +1,1 @@
-angular.module('app', ['fbPostImageValidator']);
+angular.module('app', ['fbPostImageValidator', 'angularFileUpload']);
