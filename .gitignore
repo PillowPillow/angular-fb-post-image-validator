@@ -79,3 +79,4 @@ $RECYCLE.BIN/
 /examples/**/*.js
 /src/**/*.js
 /**/*.js
+/dist
