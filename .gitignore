@@ -76,7 +76,5 @@ $RECYCLE.BIN/
 *.lnk
 
 /bower_components
-/examples/**/*.js
-/src/**/*.js
-/**/*.js
-/dist
+/example/**/*.js
+/lib/**/*.js
