@@ -96,7 +96,7 @@ function Grunt(grunt) {
 			indentString: '\t',
 			singleModule: true,
 			target: 'js',
-			module: 'textaculous',
+			module: 'fbPostImageValidator',
 			base: __dirname + '/templates'
 		},
 		app: {
