@@ -1,0 +1,13 @@
+section.img-container
+	canvas
+section.case-container(ng-style="containerStyle")
+	article.case-col(
+		ng-style="rowStyle",
+		ng-repeat="(x,col) in grid track by $index"
+	)
+		article.case-row(
+			ng-style="caseStyle",
+			ng-class="{valid:value===1,invalid:value===0}",
+			ng-repeat="(y,value) in col track by $index",
+			ng-click="toggleCase(x,y)"
+		)
