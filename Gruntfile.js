@@ -87,7 +87,7 @@ function Grunt(grunt) {
 		dist: {
 			src: [
 				'lib/javascripts/core.js',
-				'lib/javascripts/templates/binder.js',
+				'lib/javascripts/templates/core.js',
 				'lib/javascripts/constants/imgCaseStates.js',
 				'lib/javascripts/directives/fbImgValidator.js',
 				'lib/javascripts/services/fileReader.js',
@@ -101,7 +101,7 @@ function Grunt(grunt) {
 		dist: {
 			src: [
 				'lib/javascripts/core.js',
-				'lib/javascripts/templates/binder.js',
+				'lib/javascripts/templates/core.js',
 				'lib/javascripts/constants/imgCaseStates.js',
 				'lib/javascripts/directives/fbImgValidator.js',
 				'lib/javascripts/services/fileReader.js',
