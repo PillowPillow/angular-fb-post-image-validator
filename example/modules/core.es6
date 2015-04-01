@@ -1,1 +1,1 @@
-angular.module('app', ['textaculous']);
+angular.module('app', ['fbPostImageValidator']);

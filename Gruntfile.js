@@ -8,6 +8,7 @@ function Grunt(grunt) {
 	var tasks = [
 		'grunt-6to5',
 		'grunt-add-comment',
+		'grunt-html2js',
 		'grunt-contrib-uglify'
 	];
 
@@ -88,10 +89,26 @@ function Grunt(grunt) {
 		}
 	}
 
+
+	Configuration.html2js = {
+		options: {
+			quoteChar: '\'',
+			indentString: '\t',
+			singleModule: true,
+			target: 'js',
+			module: 'textaculous',
+			base: __dirname + '/templates'
+		},
+		app: {
+			src: [__dirname + '/lib/templates/**/*.jade'],
+			dest: __dirname + '/lib/javascripts/templates/core.js'
+		}
+	};
+
 	grunt.initConfig(Configuration);
 
 	grunt.registerTask('es6', ['6to5:all', 'add_comment:common']);
-	grunt.registerTask('build', ['6to5:all', 'uglify:dist', 'add_comment:dist']);
+	grunt.registerTask('dev', ['6to5:es6', 'html2js']);
 };
 
 module.exports = Grunt;
