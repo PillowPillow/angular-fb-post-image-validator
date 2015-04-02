@@ -37,6 +37,18 @@ function Grunt(grunt) {
 				src: (pathOption ? pathOption.name : ['**/*.es6']),
 				dest: paths.base
 			}]
+		},
+		dist: {
+			options: {
+				blacklist:['useStrict']
+			},
+			files: [{
+				expand: true,
+				cwd: paths.base,
+				ext: '.js',
+				src: (pathOption ? pathOption.name : ['**/*.es6']),
+				dest: paths.base
+			}]
 		}
 	};
 
@@ -71,6 +83,17 @@ function Grunt(grunt) {
 				expand: true,
 				src: ['dist/*.js'],
 			}]
+		},
+		strict: {
+			options: {
+				comments: ['use strict;'], 
+				prepend: true,
+				syntaxes: {
+					'.js': ['"','"']
+				}
+			},
+			src: ['dist/<%= package.name %>.<%= package.version %>.js'],
+			dest: 'dist/<%= package.name %>.<%= package.version %>.js'
 		}
 	};
 
@@ -86,14 +109,7 @@ function Grunt(grunt) {
 			}
 		},
 		dist: {
-			src: [
-				'lib/javascripts/core.js',
-				'lib/javascripts/templates/core.js',
-				'lib/javascripts/constants/imgCaseStates.js',
-				'lib/javascripts/directives/fbImgValidator.js',
-				'lib/javascripts/services/fileReader.js',
-				'lib/javascripts/services/grid.js'
-			],
+			src: 'dist/<%= package.name %>.<%= package.version %>.js',
 			dest: 'dist/<%= package.name %>.<%= package.version %>.min.js'
 		}
 	};
@@ -163,7 +179,7 @@ function Grunt(grunt) {
 
 	grunt.registerTask('es6', ['babel:all', 'add_comment:common']);
 	grunt.registerTask('dev', ['babel:all', 'html2js']);
-	grunt.registerTask('build', ['babel:all', 'html2js', 'uglify:dist', 'cssmin:dist', 'concat:dist', 'wrap:dist', 'concat:css', 'add_comment:dist']);
+	grunt.registerTask('build', ['babel:dist', 'html2js', 'concat:dist', 'add_comment:strict', 'uglify:dist', 'wrap:dist',  'cssmin:dist', 'concat:css', 'add_comment:dist']);
 }
 
 module.exports = Grunt;
