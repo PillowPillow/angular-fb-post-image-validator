@@ -11,6 +11,7 @@ function Grunt(grunt) {
 		'grunt-html2js',
 		'grunt-contrib-concat',
 		'grunt-contrib-cssmin',
+		'grunt-wrap',
 		'grunt-contrib-uglify'
 	];
 
@@ -117,6 +118,20 @@ function Grunt(grunt) {
 		}
 	};
 
+	Configuration.wrap = {
+		dist: {
+			options: {
+				seperator: '\n',
+				indent: '\t',
+				wrapper: ['(function (window,document,angular) {\n', '\n})(window,window.document,window.angular);']
+			},
+			src: [
+				'dist/<%= package.name %>.<%= package.version %>.js'
+			],
+			dest: 'dist/<%= package.name %>.<%= package.version %>.js'
+		}
+	};
+
 	Configuration.cssmin = {
 		options: {
 			shorthandCompacting: false,
@@ -148,7 +163,7 @@ function Grunt(grunt) {
 
 	grunt.registerTask('es6', ['babel:all', 'add_comment:common']);
 	grunt.registerTask('dev', ['babel:all', 'html2js']);
-	grunt.registerTask('build', ['babel:all', 'html2js', 'uglify:dist', 'cssmin:dist', 'concat:dist', 'concat:css', 'add_comment:dist']);
+	grunt.registerTask('build', ['babel:all', 'html2js', 'uglify:dist', 'cssmin:dist', 'concat:dist', 'wrap:dist', 'concat:css', 'add_comment:dist']);
 }
 
 module.exports = Grunt;
