@@ -47,7 +47,7 @@
 			<hr>
 			<article ng-repeat="item in Sample.uploader.queue">
 				<pre>{{item.file|json}}</pre>
-				<fb-img-validator ng-model="item._file" name="file" col=5 row=5 img-width=300></fb-img-validator>
+				<fb-img-validator ng-model="item._file" name="file" col=5 row=5></fb-img-validator>
 			</article>
 			<pre>{{myForm|json}}</pre>
 		</section>
@@ -57,16 +57,16 @@
 			<!-- libraries -->
 			<script src="../bower_components/angular/angular.js"></script>
 			<script src="../bower_components/angular-file-upload/angular-file-upload.js"></script>
-			
-			<!-- <script src="../lib/javascripts/core.js"></script> -->
-			<!-- <script src="../lib/javascripts/templates/core.js"></script> -->
-			<!-- <script src="../lib/javascripts/constants/imgCaseStates.js"></script> -->
-			<!-- <script src="../lib/javascripts/services/fileReader.js"></script> -->
-			<!-- <script src="../lib/javascripts/services/grid.js"></script> -->
-			<!-- <script src="../lib/javascripts/directives/fbImgValidator.js"></script> -->
+			<!--  -->
+			<script src="../lib/javascripts/core.js"></script>
+			<script src="../lib/javascripts/templates/core.js"></script>
+			<script src="../lib/javascripts/constants/imgCaseStates.js"></script>
+			<script src="../lib/javascripts/services/fileReader.js"></script>
+			<script src="../lib/javascripts/services/grid.js"></script>
+			<script src="../lib/javascripts/directives/fbImgValidator.js"></script>
 
 			<!-- <script src="../dist/angular-fb-post-image-validator.0.0.1.js"></script> -->
-			<script src="../dist/angular-fb-post-image-validator.0.0.1.min.js"></script>
+			<!-- <script src="../dist/angular-fb-post-image-validator.0.0.1.min.js"></script> -->
 
 			<!-- libraries -->
 			<!-- features -->

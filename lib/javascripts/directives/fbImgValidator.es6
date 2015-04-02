@@ -109,7 +109,7 @@ angular.module('fbPostImageValidator')
 
 					canvas.setAttribute('width', $scope.width);
                     canvas.setAttribute('height', height);
-                    canvas.getContext('2d').drawImage(image, 0, 0, $scope.width, height);
+                    canvas.getContext('2d').drawImage(image, 0, 0, width, height);
 				}
 
 				function setStyleProperties(width, height) {
