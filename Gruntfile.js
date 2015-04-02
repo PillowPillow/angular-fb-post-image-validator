@@ -89,7 +89,7 @@ function Grunt(grunt) {
 				comments: ['use strict;'], 
 				prepend: true,
 				syntaxes: {
-					'.js': ['"','"']
+					'.js': ['"','";']
 				}
 			},
 			src: ['dist/<%= package.name %>.<%= package.version %>.js'],
