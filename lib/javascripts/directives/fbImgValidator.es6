@@ -104,10 +104,9 @@ angular.module('fbPostImageValidator')
 						if(!$scope.width)
 							width = ($scope.height / image.height ) *  image.width;
 					}
-
 					setStyleProperties(width, height);
 
-					canvas.setAttribute('width', $scope.width);
+					canvas.setAttribute('width', width);
                     canvas.setAttribute('height', height);
                     canvas.getContext('2d').drawImage(image, 0, 0, width, height);
 				}
